@@ -1,15 +1,11 @@
+import { Router } from 'react-router-dom';
 import './App.css';
-import Footer from './Footer';
-import Home from './Home';
+import Routes from './Routes';
 import Navbar from './Navbar';
 
 function App() {
   return (
-    // fragment
-    <> 
-      <Navbar />
-      <Home />
-    </>
+      <Routes />
   );
 }
 
