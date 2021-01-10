@@ -1,4 +1,3 @@
-import ProductCard from "./ProducsCard";
 import { Product } from "./types";
 
 export function checkIsSelected(selectedProducts: Product[], product: Product) {
