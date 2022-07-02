@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.devsuperior.dsdeliver.dto.OrderDTO;
 import com.devsuperior.dsdeliver.dto.ProductDTO;
 import com.devsuperior.dsdeliver.entities.Order;
-import com.devsuperior.dsdeliver.entities.OrderStatus;
+import com.devsuperior.dsdeliver.enums.OrderStatus;
 import com.devsuperior.dsdeliver.entities.Product;
 import com.devsuperior.dsdeliver.repositories.OrderRepository;
 import com.devsuperior.dsdeliver.repositories.ProductRepository;
@@ -24,12 +24,11 @@ public class OrderService {
 	
 	@Autowired
 	private ProductRepository productRepository;
-	
 
 	@Transactional(readOnly = true)
 	public List<OrderDTO> findAll(){
 		List<Order> list = repository.findOrdersWithProducts();
-		return list.stream().map(x -> new OrderDTO(x)).collect(Collectors.toList());
+		return list.stream().map(OrderDTO::new).collect(Collectors.toList());
 	}
 	
 	@Transactional
